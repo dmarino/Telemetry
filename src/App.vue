@@ -1,28 +1,38 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+
+    <main class="vue-main-rootcomponent">
+      <Menu></Menu>
+      <router-view></router-view>
+    </main>
+
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    // typical Vue component controller defined and registered here
+    import Controller from '@/../lib/controller'
+    import Store from '@/store.js'
+    import Menu from '@/components/Menu.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    class AppController extends Controller {
+
+        constructor( name, subComponentList = []) {
+            super( name, subComponentList );
+            this.vm = {
+                title: 'Creative Tech Projects',
+                subtitle: ''
+            }
+        }
+    }
+
+    // export a definition for this view
+    export default new AppController('pgApp',{Menu});
+
 </script>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+html, body{
+
+    width: 100%;
+    height: 100%;
 }
+
 </style>
