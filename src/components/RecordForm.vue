@@ -4,7 +4,7 @@
 
     <div class="record-form">
 
-        <form @submit.prevent="saveInfo(buildId, playerId, posX, posY, action)">
+        <form @submit.prevent="saveInfo(currentRecord.buildId, currentRecord.playerId, currentRecord.posX, currentRecord.posY, currentRecord.action)">
             <input  id="build_input" type="text"  v-model="currentRecord.buildId" placeholder="build ID">
             <input  id="player_input" type="text" v-model="currentRecord.playerId" placeholder="player ID">
             <input  id="x_input" type="number" v-model="currentRecord.posX" placeholder="X pos">
@@ -45,7 +45,7 @@
                     record.posX = posX;
                     record.posY = posY;
                     record.action = action;
-                    
+
                     this.saveRecord(record);
                 }
             }
