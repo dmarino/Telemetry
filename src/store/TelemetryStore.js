@@ -1,6 +1,6 @@
 /*
 VUEX Data Store.
-Copyright (c) 2020. Jonathan, Kibble Online Inc. All Rights Reserved.
+Copyright (c) 2020. Daniela Mariño /i copy this from my lt sonar game i forgot to change the copyright 
 */
 import Vue from 'vue'
 import Vuex from 'vuex'
