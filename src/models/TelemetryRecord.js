@@ -2,12 +2,6 @@
 
 'use strict';
 
-const actions = {
-    KILL: 'kill',
-    DIED: 'died',
-    PICKUP: 'pickup'
-}
-
 export default class Record {
 
     constructor ( id, buildId, playerId, posX, posY, action ) {

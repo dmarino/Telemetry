@@ -6,12 +6,17 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 
     <div class="tittle-screen inside-container">
 
-        TO BE IMPLEMENTED...
+        <heat-map></heat-map>
     </div>
 
 </template>
 <script>
     import Controller from '@/../lib/controller'
+    import BarChart from '@/mixins/BarChartMixin'
+    import LineChart from '@/mixins/LineChartMixin'
+    import PieChart from '@/mixins/PieChartMixin'
+    import BubbleChart from '@/mixins/BubbleChartMixin'
+    import HeatMap from '@/components/HeatMap'
 
     class ChartsController extends Controller {
 
@@ -20,7 +25,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         }
     }
 
-    export default new ChartsController('Charts');
+    export default new ChartsController('Charts',{HeatMap});
 
 </script>
 <style scoped>

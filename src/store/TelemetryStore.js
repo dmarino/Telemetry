@@ -13,6 +13,19 @@ import Record from './../models/TelemetryRecord.js'
 export default {
     state: {
         records: [],
+        actionTypes:[],
+        recordsByAction:[],
+        chartData:{
+            datasets:[{
+                backgroundColor: 'rgba(179,181,198,0.8)',
+                data:[{
+                    x: 20,
+                    y: 30,
+                    r: 10
+
+                }]
+            }]
+        },
         currentRecord: new Record()
     },
 
@@ -28,6 +41,17 @@ export default {
             })
         },
 
+        loadActionTypes({commit}){
+
+            connection.get('/api/ActionTypes')
+            .then(data => data.error!=0? error =>{throw(error)} : data.payload)
+            .then(payload =>{
+                commit('SET_TYPES', payload)
+                
+            })
+
+        },
+
         selectRecord({commit}, pos){
 
             commit('SELECT_RECORD', pos)
@@ -36,7 +60,7 @@ export default {
         saveRecord({commit}, record){
 
             connection.post("/api/Telemetry", record)
-                .then(data => data.error!=0? err =>{throw(error)} : data.payload) //here checks if there is an error in the server message
+                .then(data => data.error!=0? error =>{throw(error)} : data.payload) //here checks if there is an error in the server message
                 .then(record => {
                     
                     commit('ADD_RECORD', record);
@@ -45,22 +69,53 @@ export default {
                 .catch(error=>{
                     alert(error); //shows the error to the user
                 }); 
-        },
-
-        updateCurrentRecord(){
-            
         }
-
     },
 
     mutations: {
         SET_RECORDS: (state, records) => {state.records = records},
+        SET_TYPES: (state, types) => {state.actionTypes = types},
         ADD_RECORD: (state, record) => {state.records.push(record)},
         SELECT_RECORD: (state, pos) => {state.currentRecord = state.records[pos]},
     },
 
     getters: {
         records: state => { return state.records},
-        currentRecord: state => {return state.currentRecord}
+        actionTypes: state => { return state.actionTypes},
+        currentRecord: state => {return state.currentRecord},
+        chartData: state => {
+            
+            var dataS = []
+
+            state.actionTypes.forEach(type =>{
+
+                var set = {}
+                set.backgroundColor = type.color;
+                set.label = type.name;
+                set.data = []
+
+                dataS.push(set);
+            });
+
+            state.records.forEach(element => {
+                
+                dataS.forEach(type =>{
+                    if(element.action == type.label){
+                        var record = {}
+                        record.x = element.posX;
+                        record.y = element.posY;
+                        record.r =5;
+
+                        type.data.push(record);
+                    }
+                });
+            });
+
+            state.chartData = {}
+            state.chartData.datasets = dataS;
+
+            return state.chartData
+        
+        }
     },
 }

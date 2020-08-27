@@ -40,6 +40,10 @@
             this.injectGetters(['records']);
             this.injectActions(['loadRecords', 'selectRecord']);
         }
+
+        vue_mounted(){
+            this.loadRecords();
+        }
     }
 
     export default new ListController('tList');

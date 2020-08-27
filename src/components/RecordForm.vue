@@ -10,9 +10,7 @@
             <input  id="x_input" type="number" v-model="currentRecord.posX" placeholder="X pos">
             <input  id="y_input" type="number" v-model="currentRecord.posY" placeholder="Y pos">
             <select id="action" v-model="currentRecord.action">
-                <option value="Kill">Kill</option>
-                <option value="Death">Death</option>
-                <option value="Heal">Heal</option>
+                <option  v-for="(item, i) in actionTypes" :key="i" :value="item.name">{{item.name}}</option>
             </select>
             <button id="name_btn" value="Submit"> OK</button>
         </form>
@@ -50,8 +48,12 @@
                 }
             }
 
-            this.injectGetters(['currentRecord']);
-            this.injectActions(['saveRecord']);
+            this.injectGetters(['currentRecord', 'actionTypes']);
+            this.injectActions(['saveRecord','loadActionTypes']);
+        }
+
+        vue_mounted(){
+            this.loadActionTypes();
         }
     }
 
