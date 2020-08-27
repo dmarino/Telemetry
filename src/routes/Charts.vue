@@ -7,6 +7,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     <div class="tittle-screen inside-container">
 
         <heat-map></heat-map>
+        <PieChartByType></PieChartByType>
     </div>
 
 </template>
@@ -14,8 +15,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     import Controller from '@/../lib/controller'
     import BarChart from '@/mixins/BarChartMixin'
     import LineChart from '@/mixins/LineChartMixin'
-    import PieChart from '@/mixins/PieChartMixin'
-    import BubbleChart from '@/mixins/BubbleChartMixin'
+    import PieChartByType from '@/components/PieChartByType'
     import HeatMap from '@/components/HeatMap'
 
     class ChartsController extends Controller {
@@ -25,7 +25,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         }
     }
 
-    export default new ChartsController('Charts',{HeatMap});
+    export default new ChartsController('Charts',{HeatMap, PieChartByType});
 
 </script>
 <style scoped>
