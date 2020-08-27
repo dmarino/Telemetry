@@ -16,8 +16,6 @@
 <script>
     import Controller from '@/../lib/controller'
     import PieChart from '@/mixins/PieChartMixin'
-    import Record from '../models/TelemetryRecord';
-    import ColorLabel from './colorLabel';
 
     class PieChartController extends Controller {
 
@@ -91,7 +89,7 @@
         }
     }
 
-    export default new PieChartController('pie-by-type',{PieChart, ColorLabel} );
+    export default new PieChartController('pie-by-type',{PieChart} );
 </script>
 
 <style scoped>

@@ -20,7 +20,6 @@
 <script>
     import Controller from '@/../lib/controller'
     import BubbleChart from '@/mixins/BubbleChartMixin'
-    import Record from '../models/TelemetryRecord';
     import ColorLabel from './colorLabel';
 
     class HeatMapController extends Controller {

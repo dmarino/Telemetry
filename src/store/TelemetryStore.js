@@ -82,40 +82,6 @@ export default {
     getters: {
         records: state => { return state.records},
         actionTypes: state => { return state.actionTypes},
-        currentRecord: state => {return state.currentRecord},
-        chartData: state => {
-            
-            var dataS = []
-
-            state.actionTypes.forEach(type =>{
-
-                var set = {}
-                set.backgroundColor = type.color;
-                set.label = type.name;
-                set.data = []
-
-                dataS.push(set);
-            });
-
-            state.records.forEach(element => {
-                
-                dataS.forEach(type =>{
-                    if(element.action == type.label){
-                        var record = {}
-                        record.x = element.posX;
-                        record.y = element.posY;
-                        record.r =5;
-
-                        type.data.push(record);
-                    }
-                });
-            });
-
-            state.chartData = {}
-            state.chartData.datasets = dataS;
-
-            return state.chartData
-        
-        }
+        currentRecord: state => {return state.currentRecord}
     },
 }
