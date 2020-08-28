@@ -77,15 +77,6 @@
             }
             
             this.injectGetters(['records', 'actionTypes','builds']);
-            this.injectActions(['loadRecords', 'loadActionTypes','loadBuilds']);
-        }
-
-        vue_beforeMount(){
-
-            this.loadActionTypes()
-            this.loadRecords()
-            this.loadBuilds()
-        
         }
 
         vue_mounted(){

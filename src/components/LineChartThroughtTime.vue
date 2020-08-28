@@ -83,16 +83,8 @@
             }
             
             this.injectGetters(['records', 'actionTypes']);
-            this.injectActions(['loadRecords', 'loadActionTypes']);
         }
-
-        vue_beforeMount(){
-
-            this.loadActionTypes()
-            this.loadRecords()
         
-        }
-
         vue_mounted(){
 
             this.fillChart();

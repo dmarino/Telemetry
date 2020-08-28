@@ -20,7 +20,17 @@
                 title: 'Creative Tech Projects',
                 subtitle: ''
             }
+
+            this.injectActions(['subscribeToRecords', 'loadActionTypes','loadBuilds']);
         }
+
+        vue_mounted(){
+            
+            this.subscribeToRecords();
+            this.loadActionTypes();
+            this.loadBuilds();
+        }
+
     }
 
     // export a definition for this view

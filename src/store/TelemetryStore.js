@@ -70,6 +70,20 @@ export default {
                 .catch(error=>{
                     alert(error); //shows the error to the user
                 }); 
+        },
+
+        subscribeToRecords({commit}){
+
+            //i know this should be on connection.js but i seriously wouldn't know how to call an action from the store there
+            let doc = connection.db.collection('Telemetry');
+            let observer = doc.onSnapshot(docSnapshot => {
+                
+                commit('SET_RECORDS',docSnapshot.docs.map(record=>{return record.data()}))
+               
+            }, err => {
+                console.log(`Encountered error: ${err}`);
+            });
+
         }
     },
 
