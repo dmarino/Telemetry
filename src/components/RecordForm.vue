@@ -38,7 +38,7 @@
 
             this.methods = {
                 saveInfo(buildId, playerId, posX, posY, action){
-
+                   
                     var record = new Record();
                     record.buildId = buildId;
                     record.playerId = playerId;
@@ -46,6 +46,12 @@
                     record.posY = posY;
                     record.action = action;
 
+                    if(this.currentRecord.id !== undefined){
+                        
+                        record.id = this.currentRecord.id;
+                        record.recordedTime = this.currentRecord.recordedTime
+                    }
+                    
                     this.saveRecord(record);
                 }
             }

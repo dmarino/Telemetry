@@ -54,17 +54,18 @@ export default {
         },
 
         selectRecord({commit}, pos){
-
             commit('SELECT_RECORD', pos)
         },
 
-        saveRecord({commit}, record){
+        saveRecord({commit}, record, isNew){
 
             connection.post("/api/Telemetry", record)
                 .then(data => data.error!=0? error =>{throw(error)} : data.payload) //here checks if there is an error in the server message
                 .then(record => {
                     
-                    commit('ADD_RECORD', record);
+                    //delete this cause now i don't need to add to the client records
+                    //the event thing will handle the updating of the new records
+                    //commit('ADD_RECORD', record);
                     
                 })
                 .catch(error=>{

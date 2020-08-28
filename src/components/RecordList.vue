@@ -28,6 +28,7 @@
 
                 load() { 
 
+                    console.log(this.records.length)
                     this.loadRecords();
 
                 },

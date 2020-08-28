@@ -44,6 +44,7 @@
 
 .navbar{
     width: 100%;
+    background-color: #ef476f;
 }
 
 .nav-element{
@@ -51,7 +52,12 @@
     padding:0.5%;
     margin-right: 2%;
     width: 20%;
-    background-color: #ef476f;
+   
+}
+
+.nav-element:hover{
+   
+    background-color: #F47C98;
 }
 
 .router-link{
@@ -60,6 +66,10 @@
     font-size: 1.5em;
     text-decoration: none;
 
+}
+
+.router-link:hover{
+ color:  #ef476f;
 }
 
 </style>
