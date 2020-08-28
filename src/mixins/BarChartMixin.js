@@ -9,7 +9,6 @@ Implement a Bar Chart Derivitive from vue-chartjs (Chart.js for vue)
 
 import Controller from '@/../lib/controller'
 import { Bar, mixins } from 'vue-chartjs'
-const { reactiveProp } = mixins
 
 // For doc purposes, this si a Vue style component defn as a singleton object
 // Below is a class defn using my Controller base class wrapper for Vue components
@@ -24,7 +23,7 @@ class Chart extends Controller {
             chartData: Object,
             options: Object,
         }
-        this.mixins = [ reactiveProp ];
+        this.mixins = [ mixins.reactiveProp ];
     }
 
     vue_mounted() {

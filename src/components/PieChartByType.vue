@@ -32,8 +32,28 @@
                 
             }
 
+            //these two methods are my little cheat to re render the charts when the data is updated
+            this.watch = {
+                data: function() {
+                    this.fillChart();
+                }
+            }
+
+            this.computed ={
+            
+                data: function() {
+
+                    var temp = []
+                    temp[0] = this.records;
+                    temp[1] = this.actionTypes;
+
+                    return temp;
+                }
+            }
+
             this.methods = {
                 
+                //here i re arrenge the data to show the chart that i want
                 fillChart(){
 
                     var dataS = []

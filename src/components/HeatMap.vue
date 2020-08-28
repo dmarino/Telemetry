@@ -31,14 +31,42 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: true,
-                    legend: { display: false,}
-                },
-                filter: "",
+                    legend: { display: false,},
+                    tooltips: {
+					enabled: true,
+					mode: 'single',
+					callbacks: {
+						label: function(tooltipItems, data) {
+							return 'x :' + tooltipItems.xLabel + ', y: ' + tooltipItems.yLabel;
+						}
+					}
+				},
+                }
                 
+            }
+            
+            //these two methods are my little cheat to re render the charts when the data is updated
+            this.watch = {
+                data: function() {
+                    this.fillMap();
+                }
+            }
+
+            this.computed ={
+            
+                data: function() {
+
+                    var temp = []
+                    temp[0] = this.records;
+                    temp[1] = this.actionTypes;
+
+                    return temp;
+                }
             }
 
             this.methods = {
                 
+                //here i re arrenge the data to show the chart that i want
                 fillMap(){
 
                     var dataS = []
