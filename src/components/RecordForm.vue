@@ -5,7 +5,9 @@
     <div class="record-form">
 
         <form @submit.prevent="saveInfo(currentRecord.buildId, currentRecord.playerId, currentRecord.posX, currentRecord.posY, currentRecord.action)">
-            <input  id="build_input" type="text"  v-model="currentRecord.buildId" placeholder="build ID">
+            <select id="build_input" v-model="currentRecord.buildId">
+                <option  v-for="(item, i) in builds" :key="i" :value="item.id">{{item.id}}</option>
+            </select>
             <input  id="player_input" type="text" v-model="currentRecord.playerId" placeholder="player ID">
             <input  id="x_input" type="number" v-model="currentRecord.posX" placeholder="X pos">
             <input  id="y_input" type="number" v-model="currentRecord.posY" placeholder="Y pos">
@@ -48,12 +50,13 @@
                 }
             }
 
-            this.injectGetters(['currentRecord', 'actionTypes']);
-            this.injectActions(['saveRecord','loadActionTypes']);
+            this.injectGetters(['currentRecord', 'actionTypes', 'builds']);
+            this.injectActions(['saveRecord','loadActionTypes','loadBuilds']);
         }
 
         vue_mounted(){
             this.loadActionTypes();
+            this.loadBuilds();
         }
     }
 

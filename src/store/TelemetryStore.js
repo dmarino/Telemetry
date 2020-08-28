@@ -15,17 +15,7 @@ export default {
         records: [],
         actionTypes:[],
         recordsByAction:[],
-        chartData:{
-            datasets:[{
-                backgroundColor: 'rgba(179,181,198,0.8)',
-                data:[{
-                    x: 20,
-                    y: 30,
-                    r: 10
-
-                }]
-            }]
-        },
+        builds:[],
         currentRecord: new Record()
     },
 
@@ -47,6 +37,17 @@ export default {
             .then(data => data.error!=0? error =>{throw(error)} : data.payload)
             .then(payload =>{
                 commit('SET_TYPES', payload)
+                
+            })
+
+        },
+
+        loadBuilds({commit}){
+
+            connection.get('/api/Builds')
+            .then(data => data.error!=0? error =>{throw(error)} : data.payload)
+            .then(payload =>{
+                commit('SET_BUILDS', payload)
                 
             })
 
@@ -75,6 +76,7 @@ export default {
     mutations: {
         SET_RECORDS: (state, records) => {state.records = records},
         SET_TYPES: (state, types) => {state.actionTypes = types},
+        SET_BUILDS: (state, list) => {state.builds = list},
         ADD_RECORD: (state, record) => {state.records.push(record)},
         SELECT_RECORD: (state, pos) => {state.currentRecord = state.records[pos]},
     },
@@ -82,6 +84,7 @@ export default {
     getters: {
         records: state => { return state.records},
         actionTypes: state => { return state.actionTypes},
+        builds: state => { return state.builds},
         currentRecord: state => {return state.currentRecord}
     },
 }
