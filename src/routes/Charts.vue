@@ -32,4 +32,29 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 </script>
 <style scoped>
 
+.inside-container{
+
+    display: grid;
+    grid-template-areas:
+        'heat heat heat pie'
+        'heat heat heat bar'
+        'line line line line';
+}
+
+.game-heatmap{
+    grid-area: heat;
+}
+
+.game-pieChart{
+    grid-area: pie;
+}
+
+.time-lineChart{
+    grid-area: line;
+}
+
+.build-barchart{
+    grid-area: bar;
+}
+
 </style>

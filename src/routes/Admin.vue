@@ -5,7 +5,10 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 <template>
 
     <div class="admin">
-        <RecordForm></RecordForm>
+        <div class="form-wrapper">
+             <RecordForm></RecordForm>
+        </div>
+       
         <RecordList></RecordList>
     </div>
 
@@ -30,8 +33,17 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 <style>
 
 .admin{
-
-    width: 100%;
-    height: 100%;
+    display: grid;
+    grid-template-areas:
+        'form form list';
 }
+.form-wrapper{
+    grid-area: form;
+    padding: 5%;
+}
+
+.list{
+    grid-area: list;
+}
+
 </style>

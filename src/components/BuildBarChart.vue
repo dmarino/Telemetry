@@ -2,7 +2,7 @@
 
 <template>
 
-    <div class="game-pieChart">
+    <div class="build-barchart">
 
         <h1>records per build</h1>
 
@@ -99,7 +99,7 @@
 
 <style scoped>
 
-.game-pieChart{
+.build-barchart{
 
     text-align: center;
 }

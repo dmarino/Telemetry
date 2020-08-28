@@ -2,7 +2,7 @@
 
     <main class="vue-main-rootcomponent">
       <Menu></Menu>
-      <router-view></router-view>
+      <router-view class="router-container"></router-view>
     </main>
 
 </template>
@@ -33,6 +33,32 @@ html, body{
 
     width: 100%;
     height: 100%;
+    margin: 0%;
+    padding: 0%;
+    background-color: #073b4c;
+    color: white;
+}
+
+.vue-main-rootcomponent{
+    width: 100%;
+    height: 99%;
+
+    display: grid;
+    grid-template-areas:
+        'menu'
+        'router';
+    
+}
+
+.menu{
+    grid-area: menu;
+}
+
+.router-container{
+    grid-area: router;
+    background-color: white;
+    color: black;
+    grid-row: 2 / 15;
 }
 
 </style>

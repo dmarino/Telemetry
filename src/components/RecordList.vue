@@ -4,9 +4,9 @@
 
     <div class="list">
 
-        <button  @click="load()">Load Data</button>
+        <h2>List Of Records</h2>
         <ul>
-            <li id="li-nav" v-for="(item, i) in records" :key="i" @click="select(i)">
+            <li class="li-element" v-for="(item, i) in records" :key="i" @click="select(i)">
                 {{item.id}}
             </li>
         </ul>
@@ -52,9 +52,15 @@
 <style scoped>
 
 .list{
-    width: 100%;
     height: 100%;
     border-style: dotted;
+    padding-left: 2%;
+}
+
+.li-element:hover{
+
+    cursor: pointer;
+    font-weight: bold;
 }
 
 </style>

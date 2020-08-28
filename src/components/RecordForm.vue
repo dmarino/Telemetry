@@ -67,8 +67,8 @@
 .record-form{
 
     padding: 2%;
-    height: 10%;
     border-style: dotted;   
+    height: 50%;
 }
 
 input{

@@ -6,11 +6,10 @@
         <h1>GAME TELEMETRY</h1>
         
         <div class="navbar">
-            <ul id="ul-nav">
-                <li id="li-nav" v-for="(item, index) in navMenu" :key="index">
-                    <router-link :to="{ name:item.section }">{{ item.section }}</router-link>
-                </li>
-            </ul>
+
+            <span class="nav-element" v-for="(item, index) in navMenu" :key="index">
+                <router-link  class="router-link"   :to="{ name:item.section }">{{ item.section }}</router-link>
+            </span>
         </div>
         
     </div>
@@ -40,9 +39,27 @@
 <style scoped>
 
 .menu{
-    width: 100%;
-    height: 5%;
     text-align: center;
+}
+
+.navbar{
+    width: 100%;
+}
+
+.nav-element{
+    display: inline-block;
+    padding:0.5%;
+    margin-right: 2%;
+    width: 20%;
+    background-color: #ef476f;
+}
+
+.router-link{
+
+    color: white;
+    font-size: 1.5em;
+    text-decoration: none;
+
 }
 
 </style>

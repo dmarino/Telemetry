@@ -2,7 +2,7 @@
 
 <template>
 
-    <div class="game-pieChart">
+    <div class="time-lineChart">
 
         <h1>Players Stats Over Time</h1>
 
